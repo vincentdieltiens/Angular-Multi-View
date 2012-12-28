@@ -10,6 +10,12 @@ Content of this repo
 * 1 provider `vdMultiRoute` in lib/directives/multi_route.js
 * 1 sample in lib/sample : this is an application that can browse customers or suppliers (very basic) to illustrates the directive and multiroute
 
+Example :
+---------
+
+See an example in action : http://angularjs.vincentdieltiens.be/AngularMultiView/sample
+See the code of this sample in the `sample` directory..
+
 How To Use Angular-Multi-View
 -----------------------------
 
@@ -109,7 +115,3 @@ Controllers parameters :
 	* oldRouteInfo {Object.<string>} - the informations of the last route
 	* newRouteInfo {Object.<string>} - the informations of the new route
 
-Example :
----------
-	
-See in the `sample` directory in the source
