@@ -6,9 +6,9 @@ With Angular-Multi-View, your AngularJS app can have multiples views and control
 Content of this repo
 --------------------
 
-1 directive `vdMultiView` in lib/directives/multi_view.js
-1 provider `vdMultiRoute` in lib/directives/multi_route.js
-1 sample in lib/sample : this is an application that can browse customers or suppliers (very basic) to illustrates the directive and multiroute
+* 1 directive `vdMultiView` in lib/directives/multi_view.js
+* 1 provider `vdMultiRoute` in lib/directives/multi_route.js
+* 1 sample in lib/sample : this is an application that can browse customers or suppliers (very basic) to illustrates the directive and multiroute
 
 How To Use Angular-Multi-View
 -----------------------------
