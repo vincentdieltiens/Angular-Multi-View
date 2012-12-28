@@ -15,13 +15,13 @@ How To Use Angular-Multi-View
 	
 2. In your application js file, load the two modules :
 
-	angular.module('yourApp', ['vd.multi_route', 'vd.multi_view'])
+		angular.module('yourApp', ['vd.multi_route', 'vd.multi_view'])
 	
 3. For each view html element add the attribute vd-multi-view with as the value the name of the view
 
-	<div id="content" vd-multi-view="part"></div>
+		<div id="content" vd-multi-view="part"></div>
 	
-	<div id="customer_show_col" vd-multi-view="customer_show"></div>
+		<div id="customer_show_col" vd-multi-view="customer_show"></div>
 	
 4. configure the routes :
 
