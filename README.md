@@ -3,6 +3,8 @@ Angular-Multi-View
 
 With Angular-Multi-View, your AngularJS app can have multiples views and controllers for one URL. you can control when a view and his controller must be reloaded.
 
+Note : the vdMultiRoute provider functions (when, otherwise) support the configuration of the $route provider of AngularJS
+
 Content of this repo
 --------------------
 
@@ -14,6 +16,7 @@ Example :
 ---------
 
 See an example in action : http://angularjs.vincentdieltiens.be/AngularMultiView/sample
+
 See the code of this sample in the `sample` directory..
 
 How To Use Angular-Multi-View
