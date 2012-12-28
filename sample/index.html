@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Multi-view</title>
+		<link rel="stylesheet" type="text/css" href="app/css/app.css" />
+		<script type="text/javascript" src="app/js/lib/angular.js"></script>
+		<script type="text/javascript" src="app/js/lib/angular-resource.js"></script>
+		<script type="text/javascript" src="../lib/directives/multi_view.js"></script>
+		<script type="text/javascript" src="../lib/providers/multi_route.js"></script>
+		<script type="text/javascript" src="app/js/controllers/customer.js"></script>
+		<script type="text/javascript" src="app/js/resources/customer.js"></script>
+		<script type="text/javascript" src="app/js/app.js"></script>
+	</head>
+	<body ng-app="MultiViewApp">
+		
+		<ul id="main_menu">
+			<li><a href="#/customers/">Customers</a></li>
+			<li><a href="#/suppliers/">Suppliers</a></li>
+		</ul>
+		
+		<div id="content" vd-multi-view="part"></div>
+		
+	</body>
+</html>
