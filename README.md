@@ -3,6 +3,13 @@ Angular-Multi-View
 
 With Angular-Multi-View, your AngularJS app can have multiples views and controllers for one URL. you can control when a view and his controller must be reloaded.
 
+Content of this repo
+--------------------
+
+1 directive `vdMultiView` in lib/directives/multi_view.js
+1 provider `vdMultiRoute` in lib/directives/multi_route.js
+1 sample in lib/sample : this is an application that can browse customers or suppliers (very basic) to illustrates the directive and multiroute
+
 How To Use Angular-Multi-View
 -----------------------------
 
@@ -25,20 +32,20 @@ How To Use Angular-Multi-View
 	
 4. configure the routes :
 
-	angular.module('controllers.customer', ['resources.customer'])
-		// $routeProvider is a reference to the multiRouteProvider
-		.config(function($routeProvider) {
+		angular.module('controllers.customer', ['resources.customer'])
+			// $routeProvider is a reference to the multiRouteProvider
+			.config(function($routeProvider) {
 			
-			...
+				...
 			
-			$routeProvider
-				.when('/customers', {
-					controllers: [customerListRoute]
-				})
-				.when('/customers/:customerId', {
-					controllers: [customerListRoute, customerShowRoute]
-				});
-		});
+				$routeProvider
+					.when('/customers', {
+						controllers: [customerListRoute]
+					})
+					.when('/customers/:customerId', {
+						controllers: [customerListRoute, customerShowRoute]
+					});
+			});
 	
 	In this example we have two routes `/customers` and `/customers/:customerId` defined.
 	For the first one, one controller (stored in the var customerListRoute) is defined, for the second 2 controllers are defined (in customerListRoute and customerShowRoute vars)
@@ -67,7 +74,7 @@ How To Use Angular-Multi-View
 			templateUrl: 'app/templates/customer/show.html',
 			view: 'customer_show',
 			controller: 'customer.show',
-			// This functions is called to know if the controller must be executed or not
+			// This function is called to know if the controller must be executed or not
 			// In this example, we will not rexecute the view if it is the same customer !
 			// This useful when you have other sub-views
 			execute: function(oldRouteInfo, newRouteInfo) {
@@ -82,6 +89,25 @@ How To Use Angular-Multi-View
 					&& oldRouteInfo.params.customerId == newRouteInfo.params.customerId;
 			}
 		};	
+
+Controllers parameters :
+------------------------
+
+* id (optional) - {string} - must be unique (if not defined, timestamp with be used but it is harder to debug your app :))
+* template – {string=} – html template as a string that should be used by vdMultiView directive. this property takes precedence over templateUrl.
+* templateUrl – {string=} – path to an html template that should be used by vdMultiView.
+* view (mandatory) - {string|function()=} - the name of the related view
+* controller (optional) -  {string|function()=} - same as the $route of Angular.js
+* execute (optional, default value = true) - {function()=} - this function is called by vdMultiView directive to know if the controller must be (re)executed. 
+
+  it will be called with the following parameters :
+	* oldRouteInfo {Object.<string>} - the informations of the last route
+	* newRouteInfo {Object.<string>} - the informations of the new route
+
+* persist (optional, default value = false) - {function()=} - this function will by called by vdMultiView directive at the next route to know if the directive must be empty if there is no controller in the current route that is related to the view
+  it will be called with the following parameters :
+	* oldRouteInfo {Object.<string>} - the informations of the last route
+	* newRouteInfo {Object.<string>} - the informations of the new route
 
 Example :
 ---------
