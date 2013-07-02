@@ -1,11 +1,11 @@
 <div id="customer_list_col">
 	<h1>Customer list</h1>
 	
-	<div class="loading" ng-hide="customers.length">Loading...</div>
+	<div class="loading" ng-hide="customers.length"><span>Loading...</span></div>
 	
 	<ul class="customer_list" ng-repeat="customer in customers">
 		<li><a href="#/customers/{{customer.id}}">{{customer.company}}</a></li>
 	</ul>
 </div>
 
-<div id="customer_show_col" vd-multi-view="customer_show"></div>
+<div id="customer_show_col" vd-multi-view="customer_show" ng-animate="{ enter: 'slide-left', leave: 'slide-right' }"></div>

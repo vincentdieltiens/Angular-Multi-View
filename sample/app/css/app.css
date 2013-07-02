@@ -24,8 +24,8 @@ a:hover {
 	padding: 0;
 	margin: 0;
 	height: 100%;
-	float: left;
 	border-right: 1px solid #ccc;
+	float: left;
 }
 
 #main_menu li {
@@ -33,8 +33,13 @@ a:hover {
 }
 
 #content {
-	padding-left: 200px;
+	position: relative;
+	width: -moz-calc(100% - 201px); /* don't forget the right border or #main_menu (of 1px) */
+	width: calc(100% - 201px); /* don't forget the right border or #main_menu (of 1px) */
+	width: -webkit-calc(100% - 201px); /* don't forget the right border or #main_menu (of 1px) */
+	float: left;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 #customer_list_col {
@@ -42,11 +47,18 @@ a:hover {
 	width: 200px;
 	height: 100%;
 	border-right: 1px solid #ccc;
+	position: relative;
 }
 
 #customer_show_col {
-	padding-left: 200px;
+	position: relative;
+	top: 0;
 	height: 100%;
+	width: -moz-calc(100% - 201px);
+	width: calc(100% - 201px);
+	width: -webkit-calc(100% - 201px);
+	overflow-x: hidden;
+	float: left;
 }
 
 .customer_list {
@@ -61,4 +73,74 @@ a:hover {
 
 .customer_list li:hover, .customer_list li.active {
 	background-color: #eee;
+}
+
+.slide-left, .slide-right {
+	transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	position: absolute;
+}
+
+.loading {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-color: rgba(255, 255, 255, 0.8);
+	background: rgba(1, 1, 1, 0.1);
+	text-align: center;
+	line-height: 100%;
+}
+
+.loading:before {
+	content: '';
+	width: 32px;
+	height: 32px;
+	background-color: #880000;
+	position: absolute;
+	top: -webkit-calc(50% - 8px);
+	left: -webkit-calc(50% - 16px);
+	background: transparent url(../images/loading_sprite.png);
+	-webkit-animation: loaderSprite 0.85s steps(7, end) infinite;
+    -moz-animation: loaderSprite 0.85s steps(7, end) infinite;
+    animation: loaderSprite 0.85s steps(7, end) infinite;
+}
+
+.loading span {
+	display: block;
+	height: 20px;
+	top: -webkit-calc(50% - 26px);
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+
+@-webkit-keyframes loaderSprite {
+    from { background-position: 0px; }
+    to { background-position: -224px; }
+}
+
+@-moz-keyframes loaderSprite {
+    from { background-position: 0px; }
+    to { background-position: -224px; }
+}
+
+@keyframes loaderSprite {
+    from { background-position: 0px; }
+    to { background-position: -224px; }
+}
+
+.slide-left {
+	left: -100%;
+}
+.slide-left-active {
+	left: 0;
+}
+
+.slide-right {
+	left: 0;
+}
+.slide-right-active {
+	left: -100%;
 }

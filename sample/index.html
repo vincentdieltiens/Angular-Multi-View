@@ -4,8 +4,8 @@
 		<title>Multi-view</title>
 		<link rel="stylesheet" type="text/css" href="app/css/app.css" />
 		<script type="text/javascript" src="app/js/lib/jquery.min.js"></script>
-		<script type="text/javascript" src="app/js/lib/angular.js"></script>
-		<script type="text/javascript" src="app/js/lib/angular-resource.js"></script>
+		<script type="text/javascript" src="app/js/lib/angular.min.js"></script>
+		<script type="text/javascript" src="app/js/lib/angular-resource.min.js"></script>
 		<script type="text/javascript" src="../lib/directives/multi_view.js"></script>
 		<script type="text/javascript" src="../lib/providers/multi_route.js"></script>
 		<script type="text/javascript" src="app/js/controllers/customer.js"></script>
@@ -19,7 +19,7 @@
 			<li><a href="#/suppliers/">Suppliers</a></li>
 		</ul>
 		
-		<div id="content" vd-multi-view="part"></div>
+		<div id="content" vd-multi-view="part" ng-animate="{ enter: 'slide-left', leave: 'slide-right' }"></div>
 		
 	</body>
 </html>
