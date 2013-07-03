@@ -44,13 +44,21 @@ angular.module('controllers.customer', ['resources.customer'])
 	})
 	
 	.controller('customer.list', function($scope, customer) {
-		console.log('customer.list');
+		console.log('load customer.list');
 		
 		$scope.customers = customer.query();
+
+		$scope.$unload = function() {
+			console.log('unload customer.list')
+		};
 	})
 	
 	.controller('customer.show', function($scope, $routeParams, customer) {
-		console.log('customer.show');
+		console.log('load customer.show');
 		
 		$scope.customer = customer.get({'customerId': $routeParams.customerId});
+
+		$scope.$unload = function() {
+			console.log('unload customer.show')
+		};
 	});
